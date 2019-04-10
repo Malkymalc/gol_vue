@@ -2,7 +2,7 @@
   <main id="main">
     <button id='start_pause' v-on:click="playPauseClicked">Start / Pause</button>
     <button id='reset' v-on:click="resetClicked">Reset</button>
-    <Grid />
+    <Grid :grid='grid'/>
   </main>
 </template>
 
@@ -13,7 +13,7 @@ import Grid from '../grid/Grid.vue'
 export default {
   name: 'Main',
   props: {
-    msg: String
+    grid: Array
   },
   components: {
     Grid,

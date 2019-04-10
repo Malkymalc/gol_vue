@@ -1,17 +1,25 @@
 <template>
   <div id='grid'>
-    Grid
+    <Row
+      v-for="(row, i) in grid"
+      v-bind:rowNum="i"
+    />
   </div>
 </template>
 
 <script>
 import { EventBus } from '../../EventBus.js'
+import Row from './Row.vue'
+
 
 export default {
   name: 'Grid',
   props: {
-    msg: String
+    grid: Array
   },
+  components: {
+    Row,
+  }
 }
 </script>
 
@@ -23,5 +31,8 @@ export default {
       margin: 0 auto;
       height: 50vmax;
       background-color: lightpink;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto-fit, 1fr);
     }
 </style>

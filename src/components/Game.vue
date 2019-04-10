@@ -1,13 +1,14 @@
 <template>
   <div id="game">
     <Header />
-    <Main />
+    <Main :grid='grid'/>
   </div>
 </template>
 
 
 <script>
 import { EventBus } from '../EventBus.js'
+import life from '../models/gameOfLife.js'
 import Header from './game/Header.vue'
 import Main from './game/Main.vue'
 
@@ -20,6 +21,7 @@ const resetGrid = () => {
 }
 
 
+
 EventBus.$on('play-pause', playPause);
 EventBus.$on('reset-grid', resetGrid);
 
@@ -30,6 +32,11 @@ export default {
     Header,
     Main
   },
+  data(){
+    return {
+      grid: life.getBlankGrid(),
+    }
+  }
 }
 </script>
 
