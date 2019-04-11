@@ -1,6 +1,12 @@
 <template>
   <header id="header">
-    <h1>Header</h1>
+      <button>Options</button>
+    <h1>
+      <small>Conway's</small>
+      <br>
+      <span>Game of Life</span>
+    </h1>
+    <button>?</button>
   </header>
 </template>
 
@@ -17,9 +23,15 @@ export default {
 <style scoped>
   #header {
     background-color: lightblue;
-    height: 15vh;
+    font-size: 0.8rem;
+    height: 12vh;
     width: 100vw;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    /* justify-content: space-around;
+    align-items: center; */
+    text-align: center;
   }
 </style>

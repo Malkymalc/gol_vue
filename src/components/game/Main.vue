@@ -2,7 +2,7 @@
   <main id="main">
     <button id='start_pause' v-on:click="playPauseClicked">Start / Pause</button>
     <button id='reset' v-on:click="resetClicked">Reset</button>
-    <Grid :grid='grid'/>
+    <Grid :gridArray='gridArray'/>
   </main>
 </template>
 
@@ -13,7 +13,7 @@ import Grid from '../grid/Grid.vue'
 export default {
   name: 'Main',
   props: {
-    grid: Array
+    gridArray: Array
   },
   components: {
     Grid,
@@ -33,7 +33,7 @@ export default {
 <style scoped>
   #main {
     background-color: lightgreen;
-    height: 85vh;
+    height: 88vh;
     width: 100vw;
     margin: 0;
     padding: 0;

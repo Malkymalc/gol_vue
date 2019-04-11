@@ -1,5 +1,13 @@
 <template>
-  <div class='row'>
+  <div v-bind:id="(rowNum + 1).toString().padStart(6, 'row-0')" class="row">
+    <button
+      v-for="(cell, i) in row"
+      v-bind:id="rowNum.toString().concat(i.toString())"
+      class="Cell"
+      v-bind:rowNum="rowNum"
+      v-bind:cellNum="i"
+      v-on:click="cellClicked(rowNum, i)"
+    />
   </div>
 </template>
 
@@ -11,9 +19,17 @@ import Cell from './Cell.vue'
 export default {
   name: 'Row',
   props: {
-    grid: String,
+    row: Array,
     rowNum: Number
   },
+  components: {
+    Cell
+  },
+  methods: {
+    cellClicked(rowNum, i){
+      EventBus.$emit('cell-clicked', {row: rowNum, cell: i});
+    },
+  }
 }
 </script>
 
@@ -23,7 +39,7 @@ export default {
       border: 1px solid black;
       background-color: lightyellow;
       display: grid;
-      grid-template-columns: repeat(auto-fit, 1fr);;
       grid-template-rows: 1fr;
-    }
+      grid-template-columns: repeat(auto-fit, 0.95vmax);
+}
 </style>

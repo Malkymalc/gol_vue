@@ -1,8 +1,9 @@
 <template>
   <div id='grid'>
     <Row
-      v-for="(row, i) in grid"
+      v-for="(row, i) in gridArray"
       v-bind:rowNum="i"
+      v-bind:row="row"
     />
   </div>
 </template>
@@ -15,7 +16,7 @@ import Row from './Row.vue'
 export default {
   name: 'Grid',
   props: {
-    grid: Array
+    gridArray: Array
   },
   components: {
     Row,
@@ -33,6 +34,6 @@ export default {
       background-color: lightpink;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(auto-fit, 1fr);
+      grid-template-rows: repeat(auto-fit, 0.95vmax);
     }
 </style>
